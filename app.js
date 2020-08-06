@@ -4,9 +4,9 @@ const googleSearchByImageURL = require("./googleSearchByImageURL");
 
 
 const main = async () => {
-    const imgurData = await imgurUploader(fs.readFileSync("bulba.png"), {title: "test"});
+    // const imgurData = await imgurUploader(fs.readFileSync("bulba.png"), {title: "test"});
 
-    const temp = await googleSearchByImageURL.imageSearch("https://i.imgur.com/wTf2epm.png");    
+    // const temp = await googleSearchByImageURL.imageSearch("https://i.imgur.com/wTf2epm.png");  
 };
 
 main();
