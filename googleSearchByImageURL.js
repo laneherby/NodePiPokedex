@@ -1,5 +1,6 @@
 const puppeteer = require("puppeteer");
 const pokemon = require("./pokemon.json")
+const pronunciations = require('./pronunciations.json');
 
 const isPokemon = (searchValue) => {
     for (pokeObject of pokemon) {
@@ -20,15 +21,14 @@ const imageSearch = async (imageURL) => {
     const searchArray = searchValues.split(" ");
     await browser.close();
 
-
     let pokemonScanned = false;
     for (value of searchArray) {
         if(isPokemon(value)){
-            pokemonScanned=value;
+            pokemonScanned=pronunciations[value];
         }
     }
 
-    console.log(pokemonScanned);
+    return pokemonScanned;
 };
 
 exports.imageSearch = imageSearch;
