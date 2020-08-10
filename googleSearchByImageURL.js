@@ -14,7 +14,7 @@ const isPokemon = (searchValue) => {
 const imageSearch = async (imageURL) => {
     const baseURL = "https://images.google.com/searchbyimage?image_url=";
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({product: "chrome", executablePath:"/usr/bin/chromium"});
     const page = await browser.newPage();
     await page.goto(baseURL+imageURL);
     const searchValues = await page.$eval("input[name=q]", el => el.value);

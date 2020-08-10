@@ -18,4 +18,4 @@ const takePicture = async () => {
     }
 }
 
-exports.takePicture = takePicture();
+exports.takePicture = takePicture;
