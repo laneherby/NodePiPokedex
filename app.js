@@ -13,28 +13,23 @@ const main = async () => {
     if (pictureResult === true) {
         try {
             const imgurData = await imgurUploader(fs.readFileSync("./pokeScan.jpg"), {title: "PokeDex"});
-            console.log(imgurData.link);
             const pokemonScanned = await googleSearchByImageURL.imageSearch(imgurData.link); 
 
             if (pokemonScanned === false) {
                 say.speak("Unable to find a poekeymawn", "", 0.9);
-                console.log("Unable to find a poekeymawn", "", 0.9);
             } else {
                 say.speak("The poekeymawn is a " + pokemonScanned, "", 0.9);
-                console.log("That poekeymawn is a " + pokemonScanned, "", 0.9);
             }
         } catch (e) {
-            console.log(e);
             say.speak("Error while scanning. Check internet connection.", "", 0.9);
-            console.log("Error while scanning. Check internet connection.", "", 0.9);
         }
+        return true;
     } else {
         say.speak(pictureResult, "", 0.9);
         console.log(pictureResult, "", 0.9);
+        return true;
     }
 };
-
-console.log("here");
 
 button.on("pressed", (pin) => {   
     main();
